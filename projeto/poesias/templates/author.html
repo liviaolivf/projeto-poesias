@@ -1,0 +1,21 @@
+{% extends "base_templates/base_ex.html" %}
+
+{% block title %}
+    Autor: {{ books.first.author.name }}
+{% endblock %}
+
+{% block header %}
+    <h1>Livros encontrados pelo autor: {{ books.first.author.name }}</h1>
+{% endblock %}
+
+{% block content %}
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum livro encontrado para este autor.</p>
+    {% endif %}
+{% endblock %}
